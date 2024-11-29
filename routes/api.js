@@ -71,5 +71,6 @@ Router.post(
   CategoryImageController.submitCategoryImage
 );
 Router.get("/getCategoryImage", CategoryImageController.getCatergoryImageList);
+Router.post("/getCategoryImageById", CategoryImageController.getCatergoryImageByIdList);
 
 export default Router;

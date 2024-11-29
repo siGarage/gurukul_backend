@@ -6,6 +6,7 @@ export default {
   async submitCategoryImage(req, res) {
     try {
       let request = req.body;
+      console.log(request)
       request.image =
         req?.file == undefined
           ? null
@@ -42,6 +43,14 @@ export default {
   async getCatergoryImageList(req, res) {
     try {
       const catergory = await CategoryImage.find();
+      return res.status(200).json(catergory);
+    } catch (err) {
+      return res.status(500).send({ message: "Internal Server Error" });
+    }
+  },
+  async getCatergoryImageByIdList(req, res) {
+    try {
+      const catergory = await CategoryImage.find({ category_id: req.body.id });
       return res.status(200).json(catergory);
     } catch (err) {
       return res.status(500).send({ message: "Internal Server Error" });
