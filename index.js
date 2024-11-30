@@ -33,7 +33,7 @@ conf();
 
 
 
-const port = 4500
+const port = process.env.PORT
 
 
 app.use(express.urlencoded({ extended: true }));
